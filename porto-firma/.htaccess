@@ -1,0 +1,19 @@
+RewriteEngine On
+
+# RewriteCond %{HTTP_HOST} ^localhost/porto-firma [NC]
+# RewriteRule ^(.*)$ http://localhost/porto-firma/$1 [L, R=301,NC]
+
+ErrorDocument 404 http://localhost/porto-firma/404.php
+
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+
+RewriteRule ^anasayfa$ index.php [NC,L]
+RewriteRule ^hakkimizda$ about.php [NC,L]
+RewriteRule ^news$ news.php [NC,L]
+RewriteRule ^iletisim$ contact.php [NC,L]
+RewriteRule ^sitemap.xml$ sitemap.php [NC,L]
+
+RewriteRule ^([0-9a-zA-Z-_]+)-([0-9]+)$ news-detail.php?sef=$1&icerik_id=$2 [L,QSA]
+#RewriteRule ^icerik-([0-9a-zA-Z-_]+)-([0-9]+)$ menu-detay.php?sef=$1&menu_id=$2 [L,QSA]
